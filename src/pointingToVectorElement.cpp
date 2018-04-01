@@ -18,6 +18,10 @@
  * my function. 
  * 
  *
+ * This problem is due to vector might dynamically release and allocate 
+ * space, which might change the addresses of the elements.
+ * 
+ * 
  * Created on April 1, 2018, 3:59 PM
  */
 
@@ -42,8 +46,8 @@ TEST(StupidMistakeTest, PointingToVectorEmelment){
 
     size_t N = 4;
     for (size_t i = 0;i < N;++ i) {
-    vecOfMyObject.emplace_back(i, i + 1);
-    forDemoErrors.push_back(&vecOfMyObject.back());
+        vecOfMyObject.emplace_back(i, i + 1);
+        forDemoErrors.push_back(&vecOfMyObject.back());
     }
 
     // output them
