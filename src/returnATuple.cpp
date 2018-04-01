@@ -27,7 +27,11 @@
 
 std::tuple<int, double, std::string, bool> foo(){
     std::string s("300");
-    return {1, 1.0, s, false};
+    // this will work in newer compiler (such as gcc 6.0, gcc 7.2)
+    // but won't work in older compiler (e.g., clang 4.0.1, gcc 5.4)
+    // a safer solution would be 
+    // return std::make_tuple(1, 1.0, s, false);
+    return {1, 1.0, s, false}; 
 };
 
 int main()

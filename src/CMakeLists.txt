@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 enable_testing()
 
-configure_file(../CMakeLists.txt.in googletest-download/CMakeLists.txt)
+configure_file(../CMakeLists.txt.in "${CMAKE_BINARY_DIR}/googletest-download/CMakeLists.txt")
 message(STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
         RESULT_VARIABLE result
